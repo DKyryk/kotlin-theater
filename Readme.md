@@ -1,4 +1,4 @@
-##Simple kotlin rest spring boot
+## Simple kotlin rest spring boot
 
 Using httpie to test rest API
 
