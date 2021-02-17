@@ -1,12 +1,10 @@
 package com.ercarts.kotlin.theater.controller
 
+import com.ercarts.kotlin.theater.domain.BookingRequest
 import com.ercarts.kotlin.theater.domain.Position
 import com.ercarts.kotlin.theater.domain.Seat
 import com.ercarts.kotlin.theater.service.TheaterService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 /**
  * @author dkyryk
@@ -21,4 +19,8 @@ class TheaterController(val service: TheaterService) {
         return service.getSeat(Position(row, number))
     }
 
+    @PostMapping("/seats")
+    fun bookSeat(@RequestBody bookingRequest: BookingRequest): Seat {
+        return service.bookSeat(bookingRequest)
+    }
 }
